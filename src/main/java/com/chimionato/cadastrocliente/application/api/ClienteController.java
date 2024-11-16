@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Log4j2
 public class ClienteController implements ClienteAPI {
+    private final ClienteService clienteService;
+
     @Override
     public ClienteResponse postCliente(ClienteRequest clienteRequest) {
         log.info("[inicia  ] x ClienteController - postCliente");
