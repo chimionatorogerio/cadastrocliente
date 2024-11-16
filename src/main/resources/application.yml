@@ -1,1 +1,3 @@
-spring.application.name=cadastrocliente
+server:
+  servlet:
+    context-path: /cadastrocliente/api
