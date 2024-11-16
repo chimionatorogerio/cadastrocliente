@@ -3,12 +3,16 @@ package com.chimionato.cadastrocliente.application.service;
 import com.chimionato.cadastrocliente.application.api.ClienteRequest;
 import com.chimionato.cadastrocliente.application.api.ClienteResponse;
 import com.chimionato.cadastrocliente.domain.Cliente;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 @Service
 @Log4j2
+@RequiredArgsConstructor
 public class ClienteApplicationService implements ClienteService {
+    private final ClienteRepository clienteRepository;
+
     @Override
     public ClienteResponse postCliente(ClienteRequest clienteRequest) {
         log.info("[inicia  ] @ ClienteApplicationService - criaCliente");
