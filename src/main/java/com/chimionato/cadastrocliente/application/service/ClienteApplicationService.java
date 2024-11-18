@@ -1,5 +1,6 @@
 package com.chimionato.cadastrocliente.application.service;
 
+import com.chimionato.cadastrocliente.application.api.ClienteDetalhadoResponse;
 import com.chimionato.cadastrocliente.application.api.ClienteListResponse;
 import com.chimionato.cadastrocliente.application.api.ClienteRequest;
 import com.chimionato.cadastrocliente.application.api.ClienteResponse;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -33,5 +35,13 @@ public class ClienteApplicationService implements ClienteService {
         List<Cliente> clientes = clienteRepository.getTodosClientes();
         log.info("[finaliza] & ClienteApplicationService - getTodosClientes");
         return ClienteListResponse.converte(clientes);
+    }
+
+    @Override
+    public ClienteDetalhadoResponse getUmClientePeloId(UUID idCliente) {
+        log.info("[inicia  ] % ClienteApplicationService - getUmClientePeloId");
+        Cliente cliente = clienteRepository.getUmClientePeloId(idCliente);
+        log.info("[finaliza] % ClienteApplicationService - getUmClientePeloId");
+        return new ClienteDetalhadoResponse(cliente);
     }
 }
