@@ -2,8 +2,10 @@ package com.chimionato.cadastrocliente.infra;
 
 import com.chimionato.cadastrocliente.application.repository.ClienteRepository;
 import com.chimionato.cadastrocliente.domain.Cliente;
+import com.chimionato.cadastrocliente.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,7 +37,7 @@ public class ClienteInfraRepository implements ClienteRepository {
     public Cliente getUmClientePeloId(UUID idCliente) {
         log.info("[inicia  ] * ClienteInfraRepository - getUmClientePeloId");
         Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
-                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,"Cliente não encontrado"));
         log.info("[finaliza] * ClienteInfraRepository - getUmClientePeloId");
         return cliente;
     }

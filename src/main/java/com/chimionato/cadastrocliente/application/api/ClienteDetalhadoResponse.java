@@ -1,14 +1,15 @@
 package com.chimionato.cadastrocliente.application.api;
 
 import com.chimionato.cadastrocliente.domain.Cliente;
+import lombok.Value;
 
 import java.util.UUID;
 
+@Value
 public class ClienteDetalhadoResponse {
     private UUID idCliente;
     private String nomeCompleto;
     private String email;
-    private String CPF;
 
     public ClienteDetalhadoResponse(Cliente cliente) {
         this.idCliente = cliente.getIdCliente();
