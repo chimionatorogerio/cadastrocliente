@@ -9,4 +9,5 @@ public interface ClienteRepository {
     Cliente postCliente(Cliente cliente);
     List<Cliente> getTodosClientes();
     Cliente getUmClientePeloId(UUID idCliente);
+    void deletaCliente(Cliente cliente);
 }
