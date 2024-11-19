@@ -22,6 +22,7 @@ public class Cliente {
     private String nomeCompleto;
     @NotBlank
     @Email
+    @Column(unique = true)
     private String email;
 
     public Cliente(ClienteRequest clienteRequest) {
