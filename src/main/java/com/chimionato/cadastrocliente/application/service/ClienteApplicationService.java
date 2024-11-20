@@ -1,9 +1,6 @@
 package com.chimionato.cadastrocliente.application.service;
 
-import com.chimionato.cadastrocliente.application.api.ClienteDetalhadoResponse;
-import com.chimionato.cadastrocliente.application.api.ClienteListResponse;
-import com.chimionato.cadastrocliente.application.api.ClienteRequest;
-import com.chimionato.cadastrocliente.application.api.ClienteResponse;
+import com.chimionato.cadastrocliente.application.api.*;
 import com.chimionato.cadastrocliente.application.repository.ClienteRepository;
 import com.chimionato.cadastrocliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
@@ -51,5 +48,9 @@ public class ClienteApplicationService implements ClienteService {
         Cliente cliente = clienteRepository.getUmClientePeloId(idCliente);
         clienteRepository.deletaCliente(cliente);
         log.info("[finaliza] Z ClienteApplicationService - deletaClienteAtravesId");
+    }
+
+    @Override
+    public void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
     }
 }

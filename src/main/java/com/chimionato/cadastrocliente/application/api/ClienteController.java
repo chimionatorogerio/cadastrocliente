@@ -1,6 +1,7 @@
 package com.chimionato.cadastrocliente.application.api;
 
 import com.chimionato.cadastrocliente.application.service.ClienteService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,5 +46,14 @@ public class ClienteController implements ClienteAPI {
         log.info("[idCliente] {}", idCliente);
         clienteService.deletaUmClientePeloId(idCliente);
         log.info("[finaliza] > ClienteController - deletaUmClientePeloId");
+    }
+
+    @Override
+    public void patchAlteraCliente(UUID idCliente,
+                                   @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+        log.info("[inicia] ClienteController - patchAlteraCliente");
+        log.info("[idCliente] {}", idCliente);
+        clienteService.patchAlteraCliente(idCliente, clienteAlteracaoRequest);
+        log.info("[finaliza] ClienteController - patchAlteraCliente");
     }
 }
