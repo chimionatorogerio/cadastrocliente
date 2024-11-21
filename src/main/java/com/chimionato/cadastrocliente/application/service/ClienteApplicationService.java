@@ -55,7 +55,7 @@ public class ClienteApplicationService implements ClienteService {
         log.info("[inicia] ClienteApplicationService - patchAlteraCliente");
         Cliente cliente = clienteRepository.getUmClientePeloId(idCliente);
         cliente.altera(clienteAlteracaoRequest);
-        clienteRepository.salva(cliente);
+        clienteRepository.postCliente(cliente);
         log.info("[finaliza] ClienteApplicationService - patchAlteraCliente");
     }
 }
