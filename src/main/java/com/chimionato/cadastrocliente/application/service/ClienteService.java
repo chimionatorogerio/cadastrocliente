@@ -11,5 +11,5 @@ public interface ClienteService {
     List<ClienteListResponse> getTodosClientes();
     ClienteDetalhadoResponse getUmClientePeloId(UUID idCliente);
     void deletaUmClientePeloId(UUID idCliente);
-    void patchAlteraCliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest);
+    void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
 }

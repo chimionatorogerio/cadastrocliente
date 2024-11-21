@@ -1,5 +1,6 @@
 package com.chimionato.cadastrocliente.domain;
 
+import com.chimionato.cadastrocliente.application.api.ClienteAlteracaoRequest;
 import com.chimionato.cadastrocliente.application.api.ClienteRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -26,6 +27,11 @@ public class Cliente {
     private String email;
 
     public Cliente(ClienteRequest clienteRequest) {
+        this.nomeCompleto = clienteRequest.getNomeCompleto();
+        this.email = clienteRequest.getEmail();
+    }
+
+    public void altera(ClienteAlteracaoRequest clienteRequest) {
         this.nomeCompleto = clienteRequest.getNomeCompleto();
         this.email = clienteRequest.getEmail();
     }
